@@ -1,0 +1,321 @@
+.hero{
+    @include fonts();
+    background-image:linear-gradient( 
+        /* to bottom, */
+        rgba(47,48,58,0.4),
+        rgba(130,132,160,0.4)),
+    url(/img/hero-bg.png);
+    height: 400px;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-device-pixel-ratio: 2),
+ (min-resolution: 192dpi),
+ (min-resolution: 2dppx) {
+    .hero{
+        background-image:linear-gradient( 
+            /* to bottom, */
+            rgba(47,48,58,0.4),
+            rgba(130,132,160,0.4)),
+        url(/img/hero-bg@2x.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+@media screen and (min-width:1200px) {
+    .hero{
+        height: 600px; 
+        background-image:linear-gradient( 
+            /* to bottom, */
+            rgba(47,48,58,0.4),
+            rgba(130,132,160,0.4)),
+        url(/img/hero-background.png);
+        // padding-top: 200px;
+    }
+}
+.solution{
+    @include fonts($font-size:26px, $font-weight:900);
+    color: $white;  
+    text-align: center; 
+}
+@media screen and (min-width:1200px) {
+    .solution{
+     @include fonts($font-size:44px, $font-weight:900);   
+    }
+}
+.features{
+    display:flex;
+    flex-direction: column;
+    margin-top: 60px;
+    // margin: 60px 0;
+    // height: 284px;
+}
+@media screen and (min-width:768px){
+    .features{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap:30px;
+        column-gap:30px;
+        margin: 60px auto;
+        width: 740px;
+    }
+}
+@media screen and (min-width:1200px){
+    .features{
+        width:auto;
+    }
+}
+.features_li{
+    width: 450px;
+    line-height: 10px;
+
+& h4{
+    @include fonts($font-weight:700);
+    color:$dark-text;
+    margin-bottom: 0px;
+}
+& p{
+    @include fonts();
+    color:$grey-text;
+    line-height: 25px;
+}
+&::before{
+    display: block;
+    content: "";
+    width:450px;
+    height: 120px;
+    margin-bottom: 30px;
+    
+    border-radius: 3px;
+    background-size: contain;
+    background-color:$soft-background;
+    background-repeat: no-repeat;
+    background-size: 70px 70px;
+    background-position: center;
+}
+}
+@media screen and (max-width:767px){
+    .features_li{
+& h4{
+    text-align: center;
+}
+    }
+} 
+@media screen and (min-width:768px){
+    .features_li{
+        width: calc((100% - 30px) /2);
+&::before{
+    width:354px;
+}
+    }
+}
+@media screen and (min-width:1200px){
+    .features_li{
+        width: calc((100% - 90px) /4);
+&::before{
+    width: 270px;
+}
+    }
+}   
+$icons: 'antenna', 'astronaut' ,'clock', 'diagram';
+    @each $icons-items in $icons{
+    .features_li-#{$icons-items}::before{
+        background-image: url("/img/#{$icons-items}.svg");
+    }
+}
+.main-h2_adaptive{
+    display: none;
+}
+@media screen and (min-width:1200px){
+    .main-h2_adaptive{
+        display: block;
+    }
+}
+.main-h2{
+    @include fonts($font-size:36px, $font-weight:700);
+    color:$dark-text;
+    text-align: center;
+    margin-bottom: 50px;
+}
+@media screen and (min-width:1200px) {
+    .main-h2{
+        @include fonts($font-size:28px, $font-weight:700);
+    }
+}
+.activ-section{
+    margin-top: 95px;
+}
+.activities{
+    display: none;
+}
+@media screen and (min-width:1200px) {
+.activities{
+    display:flex;
+    gap: 30px;
+}
+.activities_li{
+    width: calc((100% - 60px) /3);
+    position: relative;
+    height: 294px;
+&-overlay{
+    position: absolute;
+    bottom: 0;
+    width: 370px;
+    height: 70px;
+    background-color: rgba(47, 48, 58, 0.8);
+    padding-top: 27px;
+& p{
+    @include fonts($font-weight:700);
+    color: $white;
+    text-align: center;
+    margin: 0px;
+}
+}
+}   
+}
+.team{
+    background-color:$soft-background;
+    padding: 60px 0;
+}
+@media screen and (min-width:1200px) {
+    .team{
+        padding: 95px 0;
+        margin-top: 90px;
+    }  
+}
+@media screen and (min-width:768px) {
+    .team-container{
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+}
+.team-members{
+    margin-bottom: 30px;
+    box-shadow: 0 2px 2px rgba(117, 117, 117, 0.3) ;
+    line-height: 0px; 
+    border-radius: 5px;
+& h5{   
+    @include fonts($font-size:16px, $font-weight: 500);
+    text-align: center;
+    margin: 0px;
+    padding-top: 35px;
+}
+& p{
+    @include fonts($font-size:16px);
+    color:$grey-text;
+    text-align: center;
+    margin-bottom: 0px;
+}
+}
+@media screen and (min-width:768px) {
+    .team-members{
+        width: calc((100% - 30px) /2);
+& img{
+        height:374px;
+        width:354px;
+       }
+    }
+}
+@media screen and (min-width:1200px) {
+    .team-members{
+        // width: calc((100% - 90px) /4);
+        width: 270px;
+& img{
+        height: 270px;
+        width: 270px;
+       }
+    }
+}
+.team-info{
+    background-color:$white;
+    line-height: 17px;
+    padding-bottom: 23px;
+}
+.social-links{
+    display: flex;
+    gap: 10px;
+    width: 206px;
+    margin: 15px auto 0px;
+    background-color:$white;
+& li{
+    height: 44px;
+    width: 44px;
+    border-radius: 30px;
+    @include transition($property:background-color);
+&:hover{
+    background-color: $hover;
+    .social-links_el{
+        fill:$white;
+}
+}
+}
+}
+.social-links_el{
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill:$svg-color; 
+    margin: 12px auto;
+    @include transition($property:fill);
+}
+.customers{
+    padding: 95px 0px;
+& p{
+    @include fonts($font-size:36px, $font-weight:700);
+    color:$dark-text;
+    margin: 0px;
+    text-align: center;
+}
+}
+.customers_ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 60px;
+}
+@media screen and (min-width:1200px) {
+    .customers_ul{
+        display: flex;
+        gap: 30px;
+        margin-top: 60px;
+    }
+}
+.customers_li{
+    width:calc((100% - 30px)/2);
+    height: 92px;
+    @include border($color:$svg-color);
+
+    @include transition($property:border-color cursor);
+&:hover{
+    @include border($color:$hover);
+    cursor: pointer;
+    .customers-icons{
+        fill:$hover;
+    }
+}
+}
+@media screen and (min-width:768px) {
+    .customers_li{
+        width: calc((100% - 60px)/3);
+    }
+}
+@media screen and (min-width:1200px) {
+    .customers_li{
+        width: 170px;
+    }
+}
+.customers-icons{
+    display: block;
+    margin: 20px auto;
+    fill:$svg-color;
+
+    @include transition($property:fill);
+}
